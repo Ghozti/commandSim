@@ -9,7 +9,15 @@ public class InputController {
         if(Gdx.input.isKeyPressed(Input.Keys.W)){
             return "W";
         }
-
+        if(Gdx.input.isKeyPressed(Input.Keys.S)){
+            return "S";
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.D)){
+            return "D";
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.A)){
+            return "A";
+        }
         return null;
     }
 }

@@ -1,5 +1,7 @@
 package ghozti.frc.framework;
 
+import com.badlogic.gdx.graphics.Texture;
+
 public class Constants {
 
     public static class keys{
@@ -10,6 +12,7 @@ public class Constants {
     }
 
     public static class Robot{
-
+        public static Texture TEXTURE;// TODO fill this
+        public static float maxSpeed = 1;
     }
 }
