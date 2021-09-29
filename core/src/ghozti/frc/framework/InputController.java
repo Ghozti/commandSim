@@ -9,5 +9,7 @@ public class InputController {
         if(Gdx.input.isKeyPressed(Input.Keys.W)){
             return "W";
         }
+
+        return null;
     }
 }
