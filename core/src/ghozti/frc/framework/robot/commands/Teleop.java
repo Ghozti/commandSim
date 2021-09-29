@@ -1,9 +1,12 @@
-package ghozti.frc.framework;
+package ghozti.frc.framework.robot.commands;
 
-public class Teleop implements Command{
+import ghozti.frc.framework.frameworkutils.commands.Command;
+
+public class Teleop implements Command {
+
     @Override
     public void init() {
-
+        System.out.println("Teleop initialized...");
     }
 
     @Override

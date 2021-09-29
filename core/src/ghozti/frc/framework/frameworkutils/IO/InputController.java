@@ -1,4 +1,4 @@
-package ghozti.frc.framework;
+package ghozti.frc.framework.frameworkutils.IO;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

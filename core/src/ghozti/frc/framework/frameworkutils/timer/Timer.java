@@ -1,4 +1,4 @@
-package ghozti.frc.framework;
+package ghozti.frc.framework.frameworkutils.timer;
 
 public class Timer {
 
