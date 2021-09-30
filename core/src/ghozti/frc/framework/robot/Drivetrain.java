@@ -22,14 +22,16 @@ public class Drivetrain {
     public void updateBot(){
         leftEncoder.update();
         rightEncoder.update();
+    }
 
+    public void resetEncoders(){
+        leftEncoder.reset();
+        rightEncoder.reset();
+    }
 
-
-
-
-
-
-
+    public void killMotors(){
+        rightController.kill();
+        leftController.kill();
     }
 
 }
