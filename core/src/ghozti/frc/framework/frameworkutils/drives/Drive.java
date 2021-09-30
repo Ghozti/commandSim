@@ -16,11 +16,11 @@ public class Drive {
         setRightSpeed(speed2);
     }
 
-    public void setLeftSpeed(double speed){
-
+    private void setLeftSpeed(double speed){
+        speedController1.setSpeed(speed);
     }
 
-    public void setRightSpeed(double speed){
-
+    private void setRightSpeed(double speed){
+        speedController2.setSpeed(speed);
     }
 }
