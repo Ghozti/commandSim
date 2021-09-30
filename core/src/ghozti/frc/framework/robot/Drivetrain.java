@@ -22,6 +22,9 @@ public class Drivetrain {
     public void updateBot(){
         leftEncoder.update();
         rightEncoder.update();
+
+
+        System.out.println("");
     }
 
 }
