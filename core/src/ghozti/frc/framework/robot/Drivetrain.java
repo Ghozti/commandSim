@@ -24,7 +24,8 @@ public class Drivetrain {
         rightEncoder.update();
 
 
-        System.out.println("");
+
+
     }
 
 }
