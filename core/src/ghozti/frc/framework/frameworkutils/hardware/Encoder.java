@@ -23,6 +23,10 @@ public class Encoder {
         }
     }
 
+    public double getEncoderDistance(){
+        return distanceCovered;
+    }
+
     public void reset(){
         distanceCovered = 0;
     }

@@ -1,6 +1,6 @@
 package ghozti.frc.framework.robot;
 
-import ghozti.frc.framework.frameworkutils.drives.Drive;
+import  ghozti.frc.framework.frameworkutils.drives.Drive;
 import ghozti.frc.framework.frameworkutils.hardware.Encoder;
 import ghozti.frc.framework.frameworkutils.hardware.SpeedController;
 
@@ -32,6 +32,10 @@ public class Drivetrain {
     public void killMotors(){
         rightController.kill();
         leftController.kill();
+    }
+
+    public double getLEftCount(){
+
     }
 
 }
