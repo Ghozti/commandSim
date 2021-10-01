@@ -1,6 +1,5 @@
 package ghozti.frc.framework.frameworkutils.hardware;
 
-import ghozti.frc.framework.frameworkutils.timer.Timer;
 import ghozti.frc.framework.frameworkutils.timer.UniversalTimer;
 
 public class Encoder {

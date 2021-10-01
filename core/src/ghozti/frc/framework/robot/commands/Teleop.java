@@ -1,8 +1,18 @@
 package ghozti.frc.framework.robot.commands;
 
 import ghozti.frc.framework.frameworkutils.commands.Command;
+import ghozti.frc.framework.robot.Drivetrain;
 
 public class Teleop implements Command {
+
+    private double supplierx, suppliery;
+    private Drivetrain drivetrain;
+
+    public Teleop(Drivetrain train, double supplierx, double suppliery){
+        this.drivetrain = train;
+        this.supplierx = supplierx;
+        this.suppliery  = suppliery;
+    }
 
     @Override
     public void init() {
@@ -11,7 +21,7 @@ public class Teleop implements Command {
 
     @Override
     public void execute() {
-
+        drivetrain.arcadeDrive(supplierx,suppliery);
     }
 
     @Override

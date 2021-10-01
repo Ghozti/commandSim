@@ -24,6 +24,10 @@ public class Drivetrain {
         rightEncoder.update();
     }
 
+    public void arcadeDrive(double speed1, double speed2){
+        drive.arcadeDrive(speed1,speed2);
+    }
+
     public void resetEncoders(){
         leftEncoder.reset();
         rightEncoder.reset();
@@ -34,8 +38,8 @@ public class Drivetrain {
         leftController.kill();
     }
 
-    public double getLEftCount(){
-
+    public double getEncodersDistance(){
+        return (leftEncoder.getEncoderDistance() + rightEncoder.getEncoderDistance()) / 2;
     }
 
 }
