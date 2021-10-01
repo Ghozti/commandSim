@@ -1,4 +1,4 @@
-package ghozti.frc.framework.robot;
+package ghozti.frc.robot;
 
 public class RobotContainer {
 

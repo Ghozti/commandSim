@@ -1,7 +1,7 @@
-package ghozti.frc.framework.robot.commands;
+package ghozti.frc.robot.commands;
 
 import ghozti.frc.framework.frameworkutils.commands.Command;
-import ghozti.frc.framework.robot.Drivetrain;
+import ghozti.frc.robot.Drivetrain;
 
 public class Teleop implements Command {
 

@@ -1,4 +1,4 @@
-package ghozti.frc.framework.robot.utils;
+package ghozti.frc.robot.utils;
 
 import com.badlogic.gdx.graphics.Texture;
 
