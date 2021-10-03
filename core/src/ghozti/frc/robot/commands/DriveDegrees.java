@@ -5,23 +5,29 @@ import ghozti.frc.robot.Drivetrain;
 
 public class DriveDegrees implements Command {
 
-    public DriveDegrees(Drivetrain drivetrain, double speed, double degrees){
+    double speed, degrees;
+    Drivetrain drivetrain;
 
+    public DriveDegrees(Drivetrain drivetrain, double speed, double degrees){
+        this.drivetrain = drivetrain;
+        this.speed = speed;
+        this.degrees = degrees;
     }
 
     @Override
     public void init() {
-
+        drivetrain.resetEncoders();
     }
 
     @Override
     public void execute() {
-
+        drivetrain.arcadeDrive(speed,speed);
     }
 
     @Override
     public void end() {
-
+        drivetrain.killMotors();
+        drivetrain.resetEncoders();
     }
 
     @Override
