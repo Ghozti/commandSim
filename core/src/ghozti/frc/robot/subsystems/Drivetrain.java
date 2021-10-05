@@ -1,4 +1,4 @@
-package ghozti.frc.robot;
+package ghozti.frc.robot.subsystems;
 
 import  ghozti.frc.framework.frameworkutils.drives.Drive;
 import ghozti.frc.framework.frameworkutils.hardware.Encoder;

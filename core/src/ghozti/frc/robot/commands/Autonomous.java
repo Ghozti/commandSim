@@ -1,8 +1,7 @@
 package ghozti.frc.robot.commands;
 
 import ghozti.frc.framework.frameworkutils.commands.SequentialCommandGroup;
-import ghozti.frc.framework.frameworkutils.drives.Drive;
-import ghozti.frc.robot.Drivetrain;
+import ghozti.frc.robot.subsystems.Drivetrain;
 
 public class Autonomous extends SequentialCommandGroup {
 

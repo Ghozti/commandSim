@@ -1,4 +1,4 @@
-package ghozti.frc;
+package ghozti.frc.game;
 
 import com.badlogic.gdx.Screen;
 import ghozti.frc.framework.frameworkutils.commands.SequentialCommandGroup;

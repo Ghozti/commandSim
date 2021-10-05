@@ -1,7 +1,7 @@
 package ghozti.frc.robot.commands;
 
 import ghozti.frc.framework.frameworkutils.commands.Command;
-import ghozti.frc.robot.Drivetrain;
+import ghozti.frc.robot.subsystems.Drivetrain;
 
 public class DriveDegrees implements Command {
 

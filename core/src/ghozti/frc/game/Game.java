@@ -1,9 +1,4 @@
-package ghozti.frc;
-
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
+package ghozti.frc.game;
 
 public class Game extends com.badlogic.gdx.Game {
 
