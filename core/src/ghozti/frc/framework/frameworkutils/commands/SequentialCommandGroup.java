@@ -1,5 +1,6 @@
 package ghozti.frc.framework.frameworkutils.commands;
 
+import ghozti.frc.framework.frameworkutils.commands.Command;
 import java.util.ArrayList;
 import java.util.Arrays;
 
