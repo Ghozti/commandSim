@@ -5,27 +5,34 @@ import ghozti.frc.robot.Drivetrain;
 
 public class DriveDistance implements Command {
 
-    public DriveDistance(Drivetrain drivetrain, double speed, double inches){
+    private Drivetrain drivetrain;
+    private double speedx, speedy, pixels;
 
+    public DriveDistance(Drivetrain drivetrain, double speedx, double speedy, double pixels){
+        this.drivetrain = drivetrain;
+        this.speedx = speedx;
+        this.speedy = speedy;
+        this.pixels = pixels;
     }
 
     @Override
     public void init() {
-
+        drivetrain.resetEncoders();
     }
 
     @Override
     public void execute() {
-
+        drivetrain.arcadeDrive(speedx, speedy);
     }
 
     @Override
     public void end() {
-
+        drivetrain.killMotors();
+        drivetrain.resetEncoders();
     }
 
     @Override
     public boolean isFinished() {
-        return false;
+        return drivetrain.getEncodersDistance() >= pixels;
     }
 }
