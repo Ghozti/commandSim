@@ -1,6 +1,7 @@
 package ghozti.frc;
 
 import com.badlogic.gdx.Screen;
+import ghozti.frc.framework.frameworkutils.commands.SequentialCommandGroup;
 import ghozti.frc.framework.frameworkutils.timer.Timer;
 import ghozti.frc.framework.frameworkutils.timer.UniversalTimer;
 
@@ -12,6 +13,9 @@ public class GameLauncher implements Screen {
 
     public void update(float delta){
         UniversalTimer.update(delta);
+        if(SequentialCommandGroup.getCurrentIndex()+1 <= SequentialCommandGroup.getListSize()) {
+            SequentialCommandGroup.executeCommands();
+        }
     }
 
     @Override

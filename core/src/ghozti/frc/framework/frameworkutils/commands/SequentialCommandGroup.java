@@ -5,15 +5,15 @@ import java.util.Arrays;
 
 public class SequentialCommandGroup {
 
-    protected void addCommands(Command... commands){
+    protected static void addCommands(Command... commands){
         command_lst.addAll(Arrays.asList(commands));
     }
 
-    ArrayList<Command> command_lst = new ArrayList<>();
-    boolean newCommandInit = true;
-    int currentInd = 0;
+    static ArrayList<Command> command_lst = new ArrayList<>();
+    static boolean newCommandInit = true;
+    static int currentInd = 0;
 
-    public void executeCommands(){
+    public static void executeCommands(){
 
         if (newCommandInit){
             command_lst.get(currentInd).init();
@@ -30,11 +30,11 @@ public class SequentialCommandGroup {
         }
     }
 
-    public int getListSize(){
+    public static int getListSize(){
         return command_lst.size();
     }
 
-    public int getCurrentIndex(){
+    public static int getCurrentIndex(){
         return currentInd;
     }
 }
