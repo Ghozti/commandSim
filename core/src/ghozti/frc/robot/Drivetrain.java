@@ -6,40 +6,44 @@ import ghozti.frc.framework.frameworkutils.hardware.SpeedController;
 
 public class Drivetrain {
 
-    SpeedController leftController, rightController;
-    Encoder leftEncoder, rightEncoder;
+    SpeedController xController, yController;
+    Encoder xEncoder, yEncoder;
     Drive drive;
 
 
     public Drivetrain(){
-        leftController = new SpeedController(0, true);
-        rightController = new SpeedController(1, true);
-        leftEncoder = new Encoder(leftController);
-        rightEncoder = new Encoder(rightController);
-        drive = new Drive(leftController,rightController);
+        xController = new SpeedController(0, true);
+        yController = new SpeedController(1, true);
+        xEncoder = new Encoder(xController);
+        yEncoder = new Encoder(yController);
+        drive = new Drive(xController,yController);
     }
 
     public void updateBot(){
-        leftEncoder.update();
-        rightEncoder.update();
+        xEncoder.update();
+        yEncoder.update();
     }
 
-    public void arcadeDrive(double speed1, double speed2){
-        drive.arcadeDrive(speed1,speed2);
+    public void arcadeDrive(double speedx, double speedy){
+        drive.arcadeDrive(speedx,speedy);
     }
 
     public void resetEncoders(){
-        leftEncoder.reset();
-        rightEncoder.reset();
+        xEncoder.reset();
+        yEncoder.reset();
     }
 
     public void killMotors(){
-        rightController.kill();
-        leftController.kill();
+        xController.kill();
+        yController.kill();
     }
 
-    public double getEncodersDistance(){
-        return (leftEncoder.getEncoderDistance() + rightEncoder.getEncoderDistance()) / 2;
+    public double getXEncoderDistance(){
+        return xEncoder.getEncoderDistance();
+    }
+
+    public double getYEncoderDistance(){
+        return yEncoder.getEncoderDistance();
     }
 
 }

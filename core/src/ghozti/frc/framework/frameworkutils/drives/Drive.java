@@ -4,23 +4,23 @@ import ghozti.frc.framework.frameworkutils.hardware.SpeedController;
 
 public class Drive {
 
-    SpeedController speedController1, speedController2;
+    SpeedController xController, yController;
 
-    public Drive(SpeedController speedController1, SpeedController speedController2){
-        this.speedController1 = speedController1;
-        this.speedController2 = speedController2;
+    public Drive(SpeedController xController, SpeedController yController){
+        this.xController = xController;
+        this.yController = yController;
     }
 
-    public void arcadeDrive(double speed1, double speed2){
-        setLeftSpeed(speed1);
-        setRightSpeed(speed2);
+    public void arcadeDrive(double speedx, double speedy){
+        setXSpeed(speedx);
+        setYSpeed(speedy);
     }
 
-    private void setLeftSpeed(double speed){
-        speedController1.setSpeed(speed);
+    private void setXSpeed(double speed){
+        xController.setSpeed(speed);
     }
 
-    private void setRightSpeed(double speed){
-        speedController2.setSpeed(speed);
+    private void setYSpeed(double speed){
+        yController.setSpeed(speed);
     }
 }

@@ -33,6 +33,11 @@ public class DriveDistance implements Command {
 
     @Override
     public boolean isFinished() {
-        return drivetrain.getEncodersDistance() >= pixels;
+        if (speedx == 0){
+            return drivetrain.getXEncoderDistance() >= pixels;
+        }else if(speedy == 0){
+            return drivetrain.getYEncoderDistance() >= pixels;
+        }
+        return (drivetrain.getYEncoderDistance() + drivetrain.getXEncoderDistance())/2 >= pixels;
     }
 }
