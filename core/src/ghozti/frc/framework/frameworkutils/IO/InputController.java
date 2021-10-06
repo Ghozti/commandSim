@@ -5,19 +5,21 @@ import com.badlogic.gdx.Input;
 
 public class InputController {
 
-    public static String getCurrentKey(){
+    public static double[] getCurrentKey(){
+
+        double xAxisChange = 0, yAxisChange = 0;
+
         if(Gdx.input.isKeyPressed(Input.Keys.W)){
-            return "W";
+            yAxisChange = 10;
+        }else if(Gdx.input.isKeyPressed(Input.Keys.S)){
+            yAxisChange = -10;
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.S)){
-            return "S";
-        }
+
         if(Gdx.input.isKeyPressed(Input.Keys.D)){
-            return "D";
+            xAxisChange = 10;
+        } else if(Gdx.input.isKeyPressed(Input.Keys.A)){
+            xAxisChange = -10;
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.A)){
-            return "A";
-        }
-        return null;
+        return new double[]{xAxisChange,yAxisChange};
     }
 }
