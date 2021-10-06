@@ -1,17 +1,30 @@
 package ghozti.frc.game;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import ghozti.frc.framework.frameworkutils.commands.SequentialCommandGroup;
 import ghozti.frc.framework.frameworkutils.timer.Timer;
 import ghozti.frc.framework.frameworkutils.timer.UniversalTimer;
+import ghozti.frc.robot.Robot;
 
 public class GameLauncher implements Screen {
+
+    SpriteBatch batch;
+    Robot robot;
+
+    public GameLauncher(){
+        batch = new SpriteBatch();
+        robot = new Robot(batch);
+    }
+
     @Override
     public void show() {
 
     }
 
     public void update(float delta){
+        robot.update();
         UniversalTimer.update(delta);
         if(SequentialCommandGroup.getCurrentIndex()+1 <= SequentialCommandGroup.getListSize()) {
             SequentialCommandGroup.executeCommands();
@@ -21,6 +34,10 @@ public class GameLauncher implements Screen {
     @Override
     public void render(float delta) {
         update(delta);
+
+        batch.begin();
+        robot.drawRobot();
+        batch.end();
     }
 
     @Override
@@ -45,6 +62,6 @@ public class GameLauncher implements Screen {
 
     @Override
     public void dispose() {
-
+        batch.dispose();
     }
 }
