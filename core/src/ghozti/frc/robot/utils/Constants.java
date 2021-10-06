@@ -17,7 +17,7 @@ public class Constants {
 
     public static class Field{
         public static final Texture fieldTexture = new Texture("infinite-recharge.jpg");//TODO fill this
-        public static final double width = 1280;//field width
-        public static final double height = 720;//field height
+        public static final float width = 1280;//field width
+        public static final float height = 720;//field height
     }
 }

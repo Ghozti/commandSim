@@ -3,19 +3,23 @@ package ghozti.frc.game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import ghozti.frc.framework.frameworkutils.Field;
 import ghozti.frc.framework.frameworkutils.commands.SequentialCommandGroup;
 import ghozti.frc.framework.frameworkutils.timer.Timer;
 import ghozti.frc.framework.frameworkutils.timer.UniversalTimer;
 import ghozti.frc.robot.Robot;
+import ghozti.frc.robot.utils.Constants;
 
 public class GameLauncher implements Screen {
 
     SpriteBatch batch;
     Robot robot;
+    Field field;
 
     public GameLauncher(){
         batch = new SpriteBatch();
         robot = new Robot(batch);
+        field = new Field(batch);
     }
 
     @Override
@@ -36,6 +40,7 @@ public class GameLauncher implements Screen {
         update(delta);
 
         batch.begin();
+        field.draw();
         robot.drawRobot();
         batch.end();
     }
