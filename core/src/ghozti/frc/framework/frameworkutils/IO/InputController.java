@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input;
 
 public class InputController {
 
-    public static double[] getCurrentKey(){
+    public static double[] getCoordinateChanges(){
 
         double xAxisChange = 0, yAxisChange = 0;
 
@@ -21,5 +21,9 @@ public class InputController {
             xAxisChange = -10;
         }
         return new double[]{xAxisChange,yAxisChange};
+    }
+
+    public static boolean AutonomousReady(){
+        return Gdx.input.isKeyPressed(Input.Keys.E);
     }
 }
