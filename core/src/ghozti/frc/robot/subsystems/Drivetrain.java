@@ -38,6 +38,14 @@ public class Drivetrain {
         yController.kill();
     }
 
+    public double getXControllerSpeed(){
+        return xController.getSpeed();
+    }
+
+    public double getYControllerSpeed(){
+        return yController.getSpeed();
+    }
+
     public double getXEncoderDistance(){
         return xEncoder.getEncoderDistance();
     }

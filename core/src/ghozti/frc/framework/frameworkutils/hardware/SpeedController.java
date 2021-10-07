@@ -21,4 +21,8 @@ public class SpeedController {
     public void setInverted(boolean inverted){
         if (inverted) speed = -speed;
     }
+
+    public double getSpeed(){
+        return speed;
+    }
 }

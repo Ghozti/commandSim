@@ -10,7 +10,7 @@ import ghozti.frc.robot.utils.Constants;
 public class Robot {
 
     String directionFace;//using standard N,S,E,W
-    float[] coodinates;//where index 0 is x and index 1 is y
+    double[] coodinates;//where index 0 is x and index 1 is y
     Rectangle hitbox;//basic rectangle to be used as a hitbox
     SpriteBatch batch;//sprite batch
     Texture robotTexture;//robot texture
@@ -20,17 +20,18 @@ public class Robot {
         this.batch = batch;
         robotTexture = new Texture("sol.png");
         directionFace = "W";
-        coodinates = new float[]{0,0};
-        hitbox = new Rectangle(coodinates[0], coodinates[1], Constants.Robot.width, Constants.Robot.height);
+        coodinates = new double[]{0,0};
+        hitbox = new Rectangle((float)coodinates[0], (float)coodinates[1], Constants.Robot.width, Constants.Robot.height);
         ColorfulShell.printCYAN("Robot initialized");
     }
 
     public void update(){
         robotContainer.configureBindings();
-        coodinates[0] =
+        coodinates[0] = robotContainer.drivetrain.getXControllerSpeed();
+        coodinates[1] = robotContainer.drivetrain.getYControllerSpeed();
                 
-        hitbox.x = coodinates[0];
-        hitbox.y = coodinates[1];
+        hitbox.x = (float)coodinates[0];
+        hitbox.y = (float)coodinates[1];
     }
 
     public void end(){
@@ -38,6 +39,6 @@ public class Robot {
     }
 
     public void drawRobot(){
-        batch.draw(robotTexture, coodinates[0], coodinates[1], Constants.Robot.width, Constants.Robot.height);
+        batch.draw(robotTexture, (float)coodinates[0], (float)coodinates[1], Constants.Robot.width, Constants.Robot.height);
     }
 }
