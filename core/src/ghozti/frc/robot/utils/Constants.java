@@ -13,6 +13,8 @@ public class Constants {
     public static class Robot {
         public static final double maxRobotSpeed = 15;// in pixels pixels
         public static final double acceleration = 5;//in pixels
+        public static final float width = 50;
+        public static final float height = 50;
     }
 
     public static class Field{

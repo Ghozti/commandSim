@@ -23,6 +23,7 @@ public class DriveDistance implements Command {
     @Override
     public void execute() {
         drivetrain.arcadeDrive(speedx, speedy);
+        drivetrain.updateBot();
     }
 
     @Override
