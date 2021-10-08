@@ -29,16 +29,26 @@ public class Robot {
         robotContainer.configureBindings();
         coodinates[0] += robotContainer.drivetrain.getXControllerSpeed();
         coodinates[1] += robotContainer.drivetrain.getYControllerSpeed();
+        validatePosition();
                 
         hitbox.x = (float)coodinates[0];
         hitbox.y = (float)coodinates[1];
     }
 
-    public void end(){
-
-    }
-
     public void drawRobot(){
         batch.draw(robotTexture, (float)coodinates[0], (float)coodinates[1], Constants.Robot.width, Constants.Robot.height);
+    }
+
+    private void validatePosition(){
+        if (coodinates[0] < 0){
+            coodinates[0] = 0;
+        }else if(coodinates[0] > 1180){
+            coodinates[0] = 1180;
+        }
+        if (coodinates[1] < 0){
+            coodinates[1] = 0;
+        }else if(coodinates[1] > 620){
+            coodinates[1] = 620;
+        }
     }
 }
