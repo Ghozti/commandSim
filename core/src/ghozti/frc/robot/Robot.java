@@ -27,8 +27,8 @@ public class Robot {
 
     public void update(){
         robotContainer.configureBindings();
-        coodinates[0] = robotContainer.drivetrain.getXControllerSpeed();
-        coodinates[1] = robotContainer.drivetrain.getYControllerSpeed();
+        coodinates[0] += robotContainer.drivetrain.getXControllerSpeed();
+        coodinates[1] += robotContainer.drivetrain.getYControllerSpeed();
                 
         hitbox.x = (float)coodinates[0];
         hitbox.y = (float)coodinates[1];
