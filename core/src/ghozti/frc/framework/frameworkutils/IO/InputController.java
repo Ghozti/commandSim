@@ -26,4 +26,19 @@ public class InputController {
     public static boolean AutonomousReady(){
         return Gdx.input.isKeyPressed(Input.Keys.E);
     }
+
+    public static String getDirection(){
+        if(Gdx.input.isKeyPressed(Input.Keys.W)){
+            return "N";
+        }else if(Gdx.input.isKeyPressed(Input.Keys.S)){
+            return "S";
+        }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.D)){
+            return "E";
+        } else if(Gdx.input.isKeyPressed(Input.Keys.A)){
+            return "W";
+        }
+        return null;
+    }
 }

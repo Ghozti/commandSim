@@ -1,11 +1,14 @@
 package ghozti.frc.robot;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import ghozti.frc.framework.frameworkutils.IO.ColorfulShell;
-import ghozti.frc.framework.frameworkutils.commands.Command;
+import ghozti.frc.framework.frameworkutils.IO.InputController;
 import ghozti.frc.robot.utils.Constants;
+
+import javax.swing.plaf.nimbus.AbstractRegionPainter;
 
 public class Robot {
 
@@ -18,7 +21,7 @@ public class Robot {
 
     public Robot(SpriteBatch batch){
         this.batch = batch;
-        robotTexture = new Texture("sol.png");
+        robotTexture = Constants.Robot.WEST;
         directionFace = "W";
         coodinates = new double[]{0,0};
         hitbox = new Rectangle((float)coodinates[0], (float)coodinates[1], Constants.Robot.width, Constants.Robot.height);
@@ -30,6 +33,7 @@ public class Robot {
         coodinates[0] += robotContainer.drivetrain.getXControllerSpeed();
         coodinates[1] += robotContainer.drivetrain.getYControllerSpeed();
         validatePosition();
+        updateTexture();
                 
         hitbox.x = (float)coodinates[0];
         hitbox.y = (float)coodinates[1];
@@ -49,6 +53,27 @@ public class Robot {
             coodinates[1] = 0;
         }else if(coodinates[1] > 620){
             coodinates[1] = 620;
+        }
+    }
+
+    public void updateTexture(){
+        if (InputController.getDirection() == null){
+            return;
+        }else {
+            switch (InputController.getDirection()) {
+                case "N":
+                    robotTexture = Constants.Robot.NORTH;
+                    break;
+                case "S":
+                    robotTexture = Constants.Robot.SOUTH;
+                    break;
+                case "W":
+                    robotTexture = Constants.Robot.WEST;
+                    break;
+                case "E":
+                    robotTexture = Constants.Robot.EAST;
+                    break;
+            }
         }
     }
 }
