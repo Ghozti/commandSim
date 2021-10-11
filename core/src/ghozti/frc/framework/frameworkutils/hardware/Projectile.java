@@ -10,6 +10,7 @@ public class Projectile {
     Texture projectileTexture;
     float[] position;
     Rectangle hitbox;
+    boolean hide, hasBeenShot;
 
     public Projectile(float initx, float inity){
         projectileTexture = new Texture("ball.png");

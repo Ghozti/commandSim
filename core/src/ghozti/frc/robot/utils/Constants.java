@@ -27,4 +27,8 @@ public class Constants {
         public static final float width = 1280;//field width
         public static final float height = 720;//field height
     }
+
+    public static class Shooter{
+        public static final float shootSpeed = 15;
+    }
 }
