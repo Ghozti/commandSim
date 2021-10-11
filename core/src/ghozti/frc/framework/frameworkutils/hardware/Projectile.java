@@ -29,6 +29,12 @@ public class Projectile {
     }
 
     public void draw(Batch batch){
-        batch.draw(projectileTexture, position[0],position[1],width,height);
+        if (!hide) {
+            batch.draw(projectileTexture, position[0], position[1], width, height);
+        }
+    }
+
+    public boolean getHide(){
+        return hide;
     }
 }

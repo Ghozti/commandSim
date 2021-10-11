@@ -7,6 +7,8 @@ import ghozti.frc.robot.utils.Constants;
 public class Shooter {
 
     boolean hasFired;
+    String storedDirection;
+    float vertexChange;
     float[] position;
     float width, height;
     Rectangle hitbox;
@@ -34,7 +36,24 @@ public class Shooter {
         hitbox.y = position[1];
     }
 
-    public void shoot(){
-
+    public void shoot(String direction){
+        if (!hasFired) {
+            storedDirection = direction;
+            hasFired = true;
+        }else {
+            if (storedDirection.equals("W") || storedDirection.equals("E")){
+                if (storedDirection.equals("W")){
+                    projectile.update(-projectileSpeedChange,0);
+                }else {
+                    projectile.update(projectileSpeedChange,0);
+                }
+            }else if(storedDirection.equals("N") || storedDirection.equals("S")){
+                if (storedDirection.equals("N")){
+                    projectile.update(0,projectileSpeedChange);
+                }else {
+                    projectile.update(0,-projectileSpeedChange);
+                }
+            }
+        }
     }
 }
