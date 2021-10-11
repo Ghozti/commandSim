@@ -10,7 +10,7 @@ public class Projectile {
     Texture projectileTexture;
     float[] position;
     Rectangle hitbox;
-    boolean hasBeenShot;
+    boolean pastBounds;
 
     public Projectile(float initx, float inity){
         projectileTexture = new Texture("ball.png");
@@ -20,6 +20,7 @@ public class Projectile {
         width = 50;
         height = 50;
         hitbox = new Rectangle(position[0],position[1],width,height);
+        pastBounds = false;
     }
 
     public void update(float xchange, float ychange){
@@ -29,7 +30,18 @@ public class Projectile {
         hitbox.y = position[1];
     }
 
+    public void setPosition(float x, float y){
+        position[0] = x;
+        position[1] = y;
+        hitbox.x = position[0];
+        hitbox.y = position[1];
+    }
+
     public void draw(Batch batch){
         batch.draw(projectileTexture, position[0], position[1], width, height);
+    }
+
+    public boolean getPastBounds(){
+        return pastBounds;
     }
 }
