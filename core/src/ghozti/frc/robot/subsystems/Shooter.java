@@ -15,7 +15,7 @@ public class Shooter {
     Rectangle hitbox;
     Projectile projectile;
     final float projectileSpeedChange;
-    boolean moveX, moveY;
+    //boolean moveX, moveY;
 
     public Shooter(float posx, float posy){
         hasFired = false;
@@ -29,9 +29,7 @@ public class Shooter {
         projectileSpeedChange = Constants.Shooter.shootSpeed;
     }
 
-    public void updateShooter(float x, float y, boolean moveX, boolean moveY){
-        this.moveX = moveX;
-        this.moveY = moveY;
+    public void updateShooter(float x, float y){
         position[0] = x;
         position[1] = y;
         hitbox.x = position[0];

@@ -23,6 +23,12 @@ public class RobotContainer {
         teleopDriveProcessor();
     }
 
+    public void updateSystems(String direction){
+       drivetrain.updatePos();
+       drivetrain.validatePosition();
+       shooter.updateShooter(drivetrain.getX(),drivetrain.getY());
+    }
+
     private void teleopDriveProcessor(){
         drivetrain.arcadeDrive(InputController.getCoordinateChanges()[0], InputController.getCoordinateChanges()[1]);
     }

@@ -12,5 +12,7 @@ public class DesktopLauncher {
 		config.title = "frc robot sim";
 		config.width = 1280;
 		config.height = 720;
+		config.foregroundFPS = 120;
+		config.backgroundFPS = 30;
 	}
 }
