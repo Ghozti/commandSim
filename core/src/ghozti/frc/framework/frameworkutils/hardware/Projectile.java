@@ -8,37 +8,47 @@ public class Projectile {
 
     float width, height;
     Texture projectileTexture;
-    float[] position;
+    float[] coordinates;
     Rectangle hitbox;
     boolean pastBounds;
 
     public Projectile(float initx, float inity){
         projectileTexture = new Texture("ball.png");
-        position = new float[2];
-        position[0] = initx;
-        position[1] = inity;
+        coordinates = new float[2];
+        coordinates[0] = initx;
+        coordinates[1] = inity;
         width = 50;
         height = 50;
-        hitbox = new Rectangle(position[0],position[1],width,height);
+        hitbox = new Rectangle(coordinates[0],coordinates[1],width,height);
         pastBounds = false;
     }
 
-    public void update(float xchange, float ychange){
-        position[0] += xchange;
-        position[1] += ychange;
-        hitbox.x = position[0];
-        hitbox.y = position[1];
+    public void setChange(float xchange, float ychange){
+        //TODO fill this
     }
 
     public void setPosition(float x, float y){
-        position[0] = x;
-        position[1] = y;
-        hitbox.x = position[0];
-        hitbox.y = position[1];
+        coordinates[0] = x;
+        coordinates[1] = y;
+        hitbox.x = coordinates[0];
+        hitbox.y = coordinates[1];
+    }
+
+    public void validatePos(){
+        if (coordinates[0] < 0){
+            coordinates[0] = 0;
+        }else if(coordinates[0] > 1180){
+            coordinates[0] = 1180;
+        }
+        if (coordinates[1] < 0){
+            coordinates[1] = 0;
+        }else if(coordinates[1] > 620){
+            coordinates[1] = 620;
+        }
     }
 
     public void draw(Batch batch){
-        batch.draw(projectileTexture, position[0], position[1], width, height);
+        batch.draw(projectileTexture, coordinates[0], coordinates[1], width, height);
     }
 
     public boolean getPastBounds(){

@@ -40,7 +40,6 @@ public class GameLauncher implements Screen {
         update(delta);
         batch.begin();
         field.draw();
-        robot.robotContainer.drawProjectile(batch);
         robot.drawRobot();
         batch.end();
     }

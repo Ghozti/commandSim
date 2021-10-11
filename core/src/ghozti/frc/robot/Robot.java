@@ -36,6 +36,7 @@ public class Robot {
     }
 
     public void drawRobot(){
+        robotContainer.shooter.drawProjectile(batch);
         batch.draw(robotTexture, robotContainer.drivetrain.getX(), robotContainer.drivetrain.getY(), Constants.Robot.width, Constants.Robot.height);
     }
 

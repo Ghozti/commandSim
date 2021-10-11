@@ -31,7 +31,6 @@ public class RobotContainer {
        drivetrain.updatePos();
        drivetrain.validatePosition();
        shooter.updateShooter(drivetrain.getX(),drivetrain.getY());
-       shooter.updateProjectile(drivetrain.getX(),drivetrain.getY());
     }
 
     private void teleopDriveProcessor(){

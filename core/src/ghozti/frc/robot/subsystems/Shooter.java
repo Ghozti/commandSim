@@ -15,7 +15,6 @@ public class Shooter {
     Rectangle hitbox;
     Projectile projectile;
     final float projectileSpeedChange;
-    //boolean moveX, moveY;
 
     public Shooter(float posx, float posy){
         hasFired = false;
@@ -36,35 +35,11 @@ public class Shooter {
         hitbox.y = position[1];
     }
 
-    public void updateProjectile(float x, float y){
-        if (hasFired){
-            return;
-        }
-
-        if (projectile.getPastBounds() || !hasFired){
-            projectile.setPosition(x,y);
-            storedDirection = "";
-            hasFired = false;
-        }
-    }
-
     public void shoot(String direction){
         storedDirection = direction;
         hasFired = true;
 
-        if (storedDirection.equals("W") || storedDirection.equals("E")){
-            if (storedDirection.equals("W")){
-                projectile.update(-projectileSpeedChange,0);
-            }else {
-                projectile.update(projectileSpeedChange,0);
-                }
-        }else if(storedDirection.equals("N") || storedDirection.equals("S")){
-            if (storedDirection.equals("N")){
-                projectile.update(0,projectileSpeedChange);
-            }else {
-                projectile.update(0,-projectileSpeedChange);
-            }
-        }
+        //TODO redo this
     }
 
     public void drawProjectile(Batch batch){
