@@ -38,9 +38,9 @@ public class GameLauncher implements Screen {
     @Override
     public void render(float delta) {
         update(delta);
-
         batch.begin();
         field.draw();
+        robot.robotContainer.drawProjectile(batch);
         robot.drawRobot();
         batch.end();
     }

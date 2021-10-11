@@ -10,10 +10,11 @@ public class Projectile {
     Texture projectileTexture;
     float[] position;
     Rectangle hitbox;
-    boolean hide, hasBeenShot;
+    boolean hasBeenShot;
 
     public Projectile(float initx, float inity){
         projectileTexture = new Texture("ball.png");
+        position = new float[2];
         position[0] = initx;
         position[1] = inity;
         width = 50;
@@ -29,12 +30,6 @@ public class Projectile {
     }
 
     public void draw(Batch batch){
-        if (!hide) {
-            batch.draw(projectileTexture, position[0], position[1], width, height);
-        }
-    }
-
-    public boolean getHide(){
-        return hide;
+        batch.draw(projectileTexture, position[0], position[1], width, height);
     }
 }

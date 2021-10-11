@@ -1,13 +1,16 @@
 package ghozti.frc.robot;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import ghozti.frc.framework.frameworkutils.IO.InputController;
 import ghozti.frc.framework.frameworkutils.commands.Command;
 import ghozti.frc.robot.commands.Autonomous;
 import ghozti.frc.robot.subsystems.Drivetrain;
+import ghozti.frc.robot.subsystems.Shooter;
 
 public class RobotContainer {
 
     Drivetrain drivetrain = new Drivetrain();
+    Shooter shooter = new Shooter(0,0);//TODO make drivetrain handle positioning
     boolean autonomousRunning = false;
 
     public void configureBindings(){
@@ -26,6 +29,10 @@ public class RobotContainer {
 
     public Autonomous autonomousPeriodic(){
         return new Autonomous(drivetrain);
+    }
+
+    public void drawProjectile(Batch batch){
+        shooter.drawProjectile(batch);
     }
 
 }

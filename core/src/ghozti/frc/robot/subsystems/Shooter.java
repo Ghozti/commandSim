@@ -1,5 +1,6 @@
 package ghozti.frc.robot.subsystems;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import ghozti.frc.framework.frameworkutils.hardware.Projectile;
 import ghozti.frc.robot.utils.Constants;
@@ -18,6 +19,7 @@ public class Shooter {
 
     public Shooter(float posx, float posy){
         hasFired = false;
+        position = new float[2];
         position[0] = posx;
         position[1] = posy;
         width = 50;
@@ -55,5 +57,9 @@ public class Shooter {
                 }
             }
         }
+    }
+
+    public void drawProjectile(Batch batch){
+        projectile.draw(batch);
     }
 }

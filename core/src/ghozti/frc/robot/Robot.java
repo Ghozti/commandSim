@@ -17,7 +17,7 @@ public class Robot {
     Rectangle hitbox;//basic rectangle to be used as a hitbox
     SpriteBatch batch;//sprite batch
     Texture robotTexture;//robot texture
-    RobotContainer robotContainer = new RobotContainer();//new instance of robot container
+    public RobotContainer robotContainer = new RobotContainer();//new instance of robot container
 
     public Robot(SpriteBatch batch){
         this.batch = batch;
