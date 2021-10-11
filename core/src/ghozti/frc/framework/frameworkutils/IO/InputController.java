@@ -28,6 +28,8 @@ public class InputController {
         return Gdx.input.isKeyPressed(Input.Keys.E);
     }
 
+    public static boolean shootShooter(){return Gdx.input.isKeyPressed(Input.Keys.SPACE);}
+
     public static String getDirection(){
         if(Gdx.input.isKeyPressed(Input.Keys.W)){
             return "N";
@@ -42,4 +44,10 @@ public class InputController {
         }
         return null;
     }
+
+    /*
+    **ISSUES:
+    * the projectile follows the robot
+    * the projectile only fires once and does not move on its own when shot
+     */
 }

@@ -27,8 +27,8 @@ public class Robot {
     }
 
     public void update(){
-        robotContainer.configureBindings();
-        robotContainer.updateSystems(directionFace);
+        robotContainer.configureBindings(directionFace);
+        robotContainer.updateSystems();
         updateTexture();
                 
         hitbox.x = robotContainer.drivetrain.getX();

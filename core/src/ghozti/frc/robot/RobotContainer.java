@@ -13,20 +13,25 @@ public class RobotContainer {
     Shooter shooter = new Shooter(0,0);//TODO make drivetrain handle positioning
     boolean autonomousRunning = false;
 
-    public void configureBindings(){
+    public void configureBindings(String direction){
 
         if (InputController.AutonomousReady() && !autonomousRunning){
             autonomousPeriodic();
             autonomousRunning = true;
         }
 
+        if (InputController.shootShooter()){
+            shooter.shoot(direction);
+        }
+
         teleopDriveProcessor();
     }
 
-    public void updateSystems(String direction){
+    public void updateSystems(){
        drivetrain.updatePos();
        drivetrain.validatePosition();
        shooter.updateShooter(drivetrain.getX(),drivetrain.getY());
+       shooter.updateProjectile(drivetrain.getX(),drivetrain.getY());
     }
 
     private void teleopDriveProcessor(){
