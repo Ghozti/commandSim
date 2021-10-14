@@ -9,6 +9,7 @@ public class Projectile {
     float width, height;
     Texture projectileTexture;
     float[] coordinates;
+    float[] shooterCoordinates;
     Rectangle hitbox;
     boolean pastBounds;
 
@@ -21,30 +22,32 @@ public class Projectile {
         height = 50;
         hitbox = new Rectangle(coordinates[0],coordinates[1],width,height);
         pastBounds = false;
+        shooterCoordinates = new float[]{0,0};
     }
 
     public void setChange(float xchange, float ychange){
         //TODO fill this
     }
 
-    public void setPosition(float x, float y){
-        coordinates[0] = x;
-        coordinates[1] = y;
-        hitbox.x = coordinates[0];
-        hitbox.y = coordinates[1];
+    public void updateShooterPos(float x, float y){
+        shooterCoordinates[0] = x;
+        shooterCoordinates[1] = y;
     }
 
     public void validatePos(){
         if (coordinates[0] < 0){
-            coordinates[0] = 0;
+            coordinates[0] = shooterCoordinates[0];
         }else if(coordinates[0] > 1180){
-            coordinates[0] = 1180;
+            coordinates[0] = shooterCoordinates[0];
         }
         if (coordinates[1] < 0){
-            coordinates[1] = 0;
+            coordinates[1] = shooterCoordinates[1];
         }else if(coordinates[1] > 620){
-            coordinates[1] = 620;
+            coordinates[1] = shooterCoordinates[1];
         }
+
+        hitbox.x = coordinates[0];
+        hitbox.y = coordinates[1];
     }
 
     public void draw(Batch batch){
