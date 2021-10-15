@@ -27,6 +27,7 @@ public class Projectile {
 
     public void setChange(float xchange, float ychange){
         //TODO fill this
+        //TODO comment
     }
 
     public void updateShooterPos(float x, float y){
