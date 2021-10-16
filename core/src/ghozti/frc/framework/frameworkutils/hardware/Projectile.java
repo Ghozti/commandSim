@@ -3,6 +3,7 @@ package ghozti.frc.framework.frameworkutils.hardware;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
+import ghozti.frc.robot.utils.Constants;
 
 public class Projectile {
 
@@ -11,7 +12,7 @@ public class Projectile {
     float[] coordinates;
     float[] shooterCoordinates;
     Rectangle hitbox;
-    boolean pastBounds;
+    boolean pastBounds, hasBeenShot;
 
     public Projectile(float initx, float inity){
         projectileTexture = new Texture("ball.png");
@@ -25,37 +26,48 @@ public class Projectile {
         shooterCoordinates = new float[]{0,0};
     }
 
-    public void setChange(float xchange, float ychange){
-        //TODO fill this
-        //TODO comment
+    public void eject(String dir){//will take care of the projectile to move
+        hasBeenShot = true;
+        switch (dir){//dir = direction
+            case "N":
+                coordinates[1] += Constants.Shooter.shootSpeed;
+                break;
+            case "S":
+                coordinates[1] -= Constants.Shooter.shootSpeed;
+                break;
+            case "E":
+                coordinates[0] += Constants.Shooter.shootSpeed;
+                break;
+            case "W":
+                coordinates[0] -= Constants.Shooter.shootSpeed;
+                break;
+        }
     }
 
-    public void updateShooterPos(float x, float y){
-        shooterCoordinates[0] = x;
-        shooterCoordinates[1] = y;
+    public void reset(float x, float y){//resets the projectile back into the shooter's position
+        if (pastBounds){
+            coordinates[0] = x;
+            coordinates[1] = y;
+            hitbox.x = coordinates[0];
+            hitbox.y = coordinates[1];
+        }
     }
 
-    public void validatePos(){
+    public void validatePos(){//will check if the projectile is out of bounds
         if (coordinates[0] < 0){
-            coordinates[0] = shooterCoordinates[0];
+            pastBounds  = true;
         }else if(coordinates[0] > 1180){
-            coordinates[0] = shooterCoordinates[0];
+            pastBounds  = true;
         }
         if (coordinates[1] < 0){
-            coordinates[1] = shooterCoordinates[1];
+            pastBounds  = true;
         }else if(coordinates[1] > 620){
-            coordinates[1] = shooterCoordinates[1];
+            pastBounds  = true;
         }
-
-        hitbox.x = coordinates[0];
-        hitbox.y = coordinates[1];
     }
 
     public void draw(Batch batch){
         batch.draw(projectileTexture, coordinates[0], coordinates[1], width, height);
     }
 
-    public boolean getPastBounds(){
-        return pastBounds;
-    }
 }
