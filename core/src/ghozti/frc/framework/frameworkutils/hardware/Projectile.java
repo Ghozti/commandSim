@@ -12,7 +12,7 @@ public class Projectile {
     float[] coordinates;
     float[] shooterCoordinates;
     Rectangle hitbox;
-    boolean pastBounds, hasBeenShot;
+    boolean pastBounds,reset;
 
     public Projectile(float initx, float inity){
         projectileTexture = new Texture("ball.png");
@@ -26,8 +26,14 @@ public class Projectile {
         shooterCoordinates = new float[]{0,0};
     }
 
+    public void update(float shooterx, float shootery){
+        validatePos();
+        if (pastBounds){
+            reset(shooterx,shootery);
+        }
+    }
+
     public void eject(String dir){//will take care of the projectile to move
-        hasBeenShot = true;
         switch (dir){//dir = direction
             case "N":
                 coordinates[1] += Constants.Shooter.shootSpeed;
@@ -46,6 +52,7 @@ public class Projectile {
 
     public void reset(float x, float y){//resets the projectile back into the shooter's position
         if (pastBounds){
+            reset = true;
             coordinates[0] = x;
             coordinates[1] = y;
             hitbox.x = coordinates[0];
@@ -70,4 +77,5 @@ public class Projectile {
         batch.draw(projectileTexture, coordinates[0], coordinates[1], width, height);
     }
 
+    public boolean getReset(){return reset;}
 }

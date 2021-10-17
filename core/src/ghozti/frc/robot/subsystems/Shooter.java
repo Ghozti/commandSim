@@ -7,7 +7,6 @@ import ghozti.frc.robot.utils.Constants;
 
 public class Shooter {
 
-    boolean hasFired;
     String storedDirection;
     float vertexChange;
     float[] position;
@@ -15,9 +14,9 @@ public class Shooter {
     Rectangle hitbox;
     Projectile projectile;
     final float projectileSpeedChange;
+    boolean hasFired;
 
     public Shooter(float posx, float posy){
-        hasFired = false;
         position = new float[2];
         position[0] = posx;
         position[1] = posy;
@@ -26,6 +25,7 @@ public class Shooter {
         hitbox = new Rectangle(position[0],position[1],width,height);
         projectile = new Projectile(position[0],position[1]);
         projectileSpeedChange = Constants.Shooter.shootSpeed;
+        hasFired = false;
     }
 
     public void updateShooter(float x, float y){
@@ -36,10 +36,15 @@ public class Shooter {
     }
 
     public void shoot(String direction){
-        storedDirection = direction;
-        hasFired = true;
+        if (!hasFired) {
+            storedDirection = direction;
+            hasFired = true;
+        }
 
-        //TODO redo this
+        if (projectile.getReset()){
+            hasFired = false;
+        }
+
     }
 
     public void drawProjectile(Batch batch){
