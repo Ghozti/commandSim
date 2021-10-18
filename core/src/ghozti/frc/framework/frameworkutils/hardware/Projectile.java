@@ -3,6 +3,7 @@ package ghozti.frc.framework.frameworkutils.hardware;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
+import ghozti.frc.framework.frameworkutils.IO.ColorfulShell;
 import ghozti.frc.robot.utils.Constants;
 
 public class Projectile {
@@ -12,7 +13,7 @@ public class Projectile {
     float[] coordinates;
     float[] shooterCoordinates;
     Rectangle hitbox;
-    boolean pastBounds,reset;
+    boolean shot, pastBounds,reset;
 
     public Projectile(float initx, float inity){
         projectileTexture = new Texture("ball.png");
@@ -22,32 +23,43 @@ public class Projectile {
         width = 50;
         height = 50;
         hitbox = new Rectangle(coordinates[0],coordinates[1],width,height);
-        pastBounds = false;
         shooterCoordinates = new float[]{0,0};
     }
 
     public void update(float shooterx, float shootery){
         validatePos();
-        if (pastBounds){
-            reset(shooterx,shootery);
+
+        if (shot){
+            coordinates[0] += xChange;
+            coordinates[1] += yChange;
+            if (pastBounds){
+                reset(shooterx,shootery);
+                shot = false;
+            }
+        }else {
+            coordinates[0] = shooterx;
+            coordinates[1] = shootery;
         }
     }
+
+    float xChange, yChange;
 
     public void eject(String dir){//will take care of the projectile to move
         switch (dir){//dir = direction
             case "N":
-                coordinates[1] += Constants.Shooter.shootSpeed;
+                yChange = Constants.Shooter.shootSpeed;
                 break;
             case "S":
-                coordinates[1] -= Constants.Shooter.shootSpeed;
+                yChange = -Constants.Shooter.shootSpeed;
                 break;
             case "E":
-                coordinates[0] += Constants.Shooter.shootSpeed;
+                xChange = Constants.Shooter.shootSpeed;
                 break;
             case "W":
-                coordinates[0] -= Constants.Shooter.shootSpeed;
+                xChange = -Constants.Shooter.shootSpeed;
                 break;
         }
+        shot = true;
     }
 
     public void reset(float x, float y){//resets the projectile back into the shooter's position

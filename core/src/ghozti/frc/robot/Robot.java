@@ -27,7 +27,7 @@ public class Robot {
     }
 
     public void update(){
-        robotContainer.configureBindings(directionFace);
+        robotContainer.configureBindings(InputController.getDirection());
         robotContainer.updateSystems();
         updateTexture();
                 
@@ -36,7 +36,7 @@ public class Robot {
     }
 
     public void drawRobot(){
-        robotContainer.shooter.drawProjectile(batch);
+        robotContainer.drawProjectile(batch);
         batch.draw(robotTexture, robotContainer.drivetrain.getX(), robotContainer.drivetrain.getY(), Constants.Robot.width, Constants.Robot.height);
     }
 

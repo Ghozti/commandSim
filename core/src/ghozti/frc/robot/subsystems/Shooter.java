@@ -33,11 +33,13 @@ public class Shooter {
         position[1] = y;
         hitbox.x = position[0];
         hitbox.y = position[1];
+        projectile.update(position[0],position[1]);
     }
 
     public void shoot(String direction){
         if (!hasFired) {
             storedDirection = direction;
+            projectile.eject(direction);
             hasFired = true;
         }
 
