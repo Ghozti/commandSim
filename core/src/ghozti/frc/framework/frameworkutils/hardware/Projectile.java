@@ -34,7 +34,6 @@ public class Projectile {
             coordinates[1] += yChange;
             if (pastBounds){
                 reset(shooterx,shootery);
-                shot = false;
             }
         }else {
             coordinates[0] = shooterx;
@@ -45,21 +44,23 @@ public class Projectile {
     float xChange, yChange;
 
     public void eject(String dir){//will take care of the projectile to move
-        switch (dir){//dir = direction
-            case "N":
-                yChange = Constants.Shooter.shootSpeed;
-                break;
-            case "S":
-                yChange = -Constants.Shooter.shootSpeed;
-                break;
-            case "E":
-                xChange = Constants.Shooter.shootSpeed;
-                break;
-            case "W":
-                xChange = -Constants.Shooter.shootSpeed;
-                break;
+        if (!shot) {
+            switch (dir) {//dir = direction
+                case "N":
+                    yChange = Constants.Shooter.shootSpeed;
+                    break;
+                case "S":
+                    yChange = -Constants.Shooter.shootSpeed;
+                    break;
+                case "E":
+                    xChange = Constants.Shooter.shootSpeed;
+                    break;
+                case "W":
+                    xChange = -Constants.Shooter.shootSpeed;
+                    break;
+            }
+            shot = true;
         }
-        shot = true;
     }
 
     public void reset(float x, float y){//resets the projectile back into the shooter's position
@@ -69,18 +70,22 @@ public class Projectile {
             coordinates[1] = y;
             hitbox.x = coordinates[0];
             hitbox.y = coordinates[1];
+            xChange = 0;
+            yChange = 0;
+            shot = false;
+            pastBounds = false;
         }
     }
 
     public void validatePos(){//will check if the projectile is out of bounds
         if (coordinates[0] < 0){
             pastBounds  = true;
-        }else if(coordinates[0] > 1180){
+        }else if(coordinates[0] > 1280){
             pastBounds  = true;
         }
         if (coordinates[1] < 0){
             pastBounds  = true;
-        }else if(coordinates[1] > 620){
+        }else if(coordinates[1] > 720){
             pastBounds  = true;
         }
     }
