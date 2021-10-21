@@ -60,5 +60,4 @@ public class Robot {
             }
         }
     }
-    //TODO comment
 }

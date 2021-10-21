@@ -10,7 +10,7 @@ public class Field {
 
     private Texture fieldTexture;
     SpriteBatch batch;
-    Rectangle score1, score2;
+    Rectangle score1, score2;//TODO take care of scoring shit
 
     public Field(SpriteBatch batch){
         fieldTexture = Constants.Field.fieldTexture;
