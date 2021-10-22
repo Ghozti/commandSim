@@ -17,6 +17,14 @@ public class Field {
         this.batch = batch;
     }
 
+    public boolean isScore1Hit(){
+        return false;
+    }
+
+    public boolean isScore2Hit(){
+       return false;
+    }
+
     public void draw(){
         batch.draw(fieldTexture, 0,0 , Constants.Field.width, Constants.Field.height);
     }
